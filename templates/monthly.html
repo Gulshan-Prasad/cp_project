@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Summary</title>
+</head>
+<body>
+    <h1>Monthly Summary</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Total Expenses</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in summary %}
+            <tr>
+                <td>{{ entry.year }}</td>
+                <td>{{ entry.month }}</td>
+                <td>${{ "%.2f"|format(entry.total_amount) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
